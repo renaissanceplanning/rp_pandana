@@ -84,7 +84,7 @@ class Network:
         # in the c extension are actually indexes ordered from 0 to numnodes-1
         # node ids are thus translated back and forth in the python layer, which
         # allows non-integer node ids as well
-        self.node_idx = pd.Series(np.arange(len(nodes_df), dtype="int"),
+        self.node_idx = pd.Series(np.arange(len(nodes_df), dtype=np.int32),
                                   index=nodes_df.index)
 
         edges = pd.concat([self._node_indexes(edges_df["from"]),
